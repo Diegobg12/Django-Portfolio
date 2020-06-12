@@ -8,9 +8,11 @@ class Blog(models.Model):
     pub_date =  models.DateTimeField()
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
+    imagecp = models.CharField(max_length=1000, null=True)
+
 
     def summary(self):
-        return self.body[:50]
+        return self.body[:100]
 
     def pub_date_short(self):
         return self.pub_date.strftime('%b %e %Y')
